@@ -11,6 +11,10 @@
       "link"  : "/components"
     },
     {
+      "label" : "Contacts",
+      "link"  : "/contacts"
+    },
+    {
       "label" : "About",
       "link"  : "/about"
     }

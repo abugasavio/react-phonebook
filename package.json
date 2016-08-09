@@ -73,8 +73,11 @@
     "react-bootstrap": "^0.28.3",
     "react-dom": "^15.3.0",
     "react-motion": "^0.4.4",
+    "react-redux": "^4.4.5",
     "react-router": "^2.0.0",
+    "react-router-redux": "^4.0.5",
     "react-tap-event-plugin": "^0.2.2",
+    "redux": "^3.5.2",
     "superagent": "^1.8.3",
     "whatwg-fetch": "^1.0.0"
   }

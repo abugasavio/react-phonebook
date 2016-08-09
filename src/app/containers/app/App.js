@@ -7,6 +7,19 @@ import {
   BackToTop
 }                         from '../../components';
 import navigationModel    from '../../models/navigation.json';
+import * as actionCreators from '../../actions/actionCreators';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
+function mapStatesToProps(state) {
+  return {
+    contacts: state.contacts
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(actionCreators, dispatch);
+}
 
 class App extends Component {
   constructor(props) {
@@ -19,7 +32,7 @@ class App extends Component {
 
   render() {
     const { navModel } = this.state;
-    const { children } = this.props;
+    // const { children } = this.props;
     return (
       <div id="appContainer">
         <NavigationBar
@@ -29,7 +42,7 @@ class App extends Component {
           handleRightNavItemClick={this.handleRightNavItemClick}
         />
         <div className="container-fluid">
-          {children}
+          {React.cloneElement(this.props.children, this.props)}
         </div>
         <BackToTop
           minScrollY={40}
@@ -56,5 +69,7 @@ App.propTypes = {
   history:  PropTypes.object,
   location: PropTypes.object
 };
+
+App = connect(mapStatesToProps, mapDispatchToProps)(App);
 
 export default App;
